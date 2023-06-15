@@ -6,7 +6,9 @@ import org.testng.annotations.Test;
 import com.brillio.base.AutomationWrapper;
 
 import io.appium.java_client.AppiumBy;
-
+/**
+ * This class contains test methods of login scenario
+ */
 public class LoginTest extends AutomationWrapper{
 
 	@Test
