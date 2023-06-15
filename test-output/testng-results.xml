@@ -2,15 +2,15 @@
 <testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-15T12:40:42 IST" name="Default suite" finished-at="2023-06-15T12:41:07 IST" duration-ms="25462">
+  <suite started-at="2023-06-15T12:58:00 IST" name="Default suite" finished-at="2023-06-15T12:58:24 IST" duration-ms="24336">
     <groups>
     </groups>
-    <test started-at="2023-06-15T12:40:42 IST" name="Default test" finished-at="2023-06-15T12:41:07 IST" duration-ms="25462">
-      <class name="com.brillio.test.LoginTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.brillio.test.LoginTest@1725dc0f]" started-at="2023-06-15T12:40:42 IST" name="setup" finished-at="2023-06-15T12:41:07 IST" duration-ms="25406" status="FAIL">
+    <test started-at="2023-06-15T12:58:00 IST" name="Default test" finished-at="2023-06-15T12:58:24 IST" duration-ms="24336">
+      <class name="com.brillio.test.SignUpTest">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.brillio.test.SignUpTest@4ac3c60d]" started-at="2023-06-15T12:58:00 IST" name="setup" finished-at="2023-06-15T12:58:24 IST" duration-ms="24275" status="FAIL">
           <exception class="org.openqa.selenium.SessionNotCreatedException">
             <message>
-              <![CDATA[Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20095ms. 
+              <![CDATA[Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20112ms. 
 Host info: host: 'Balajis-MacBook-Pro.local', ip: '2405:201:e037:f0af:e9:9f48:2168:b60a%en0'
 Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.4', java.version: '17.0.7'
@@ -19,7 +19,7 @@ Command: [null, newSession {capabilities=[{appium:app=/Users/balaji/Documents/Co
 Capabilities {app: /Users/balaji/Documents/Com..., deviceName: redmi, platformName: ANDROID}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20095ms. 
+              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20112ms. 
 Host info: host: 'Balajis-MacBook-Pro.local', ip: '2405:201:e037:f0af:e9:9f48:2168:b60a%en0'
 Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.4', java.version: '17.0.7'
@@ -41,7 +41,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:154)
 at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
 at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:101)
 at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:113)
-at com.brillio.test.LoginTest.setup(LoginTest.java:32)
+at com.brillio.base.AutomationWrapper.setup(AutomationWrapper.java:29)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -80,10 +80,10 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="invalidLoginTest()[pri:0, instance:com.brillio.test.LoginTest@1725dc0f]" started-at="2023-06-15T12:41:07 IST" name="invalidLoginTest" finished-at="2023-06-15T12:41:07 IST" duration-ms="0" status="SKIP">
+        <test-method signature="validRegisterTest()[pri:0, instance:com.brillio.test.SignUpTest@4ac3c60d]" started-at="2023-06-15T12:58:24 IST" name="validRegisterTest" finished-at="2023-06-15T12:58:24 IST" duration-ms="1" status="SKIP">
           <exception class="org.openqa.selenium.SessionNotCreatedException">
             <message>
-              <![CDATA[Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20095ms. 
+              <![CDATA[Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20112ms. 
 Host info: host: 'Balajis-MacBook-Pro.local', ip: '2405:201:e037:f0af:e9:9f48:2168:b60a%en0'
 Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.4', java.version: '17.0.7'
@@ -92,7 +92,7 @@ Command: [null, newSession {capabilities=[{appium:app=/Users/balaji/Documents/Co
 Capabilities {app: /Users/balaji/Documents/Com..., deviceName: redmi, platformName: ANDROID}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20095ms. 
+              <![CDATA[org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: An unknown server-side error occurred while processing the command. Original error: Could not find a connected Android device in 20112ms. 
 Host info: host: 'Balajis-MacBook-Pro.local', ip: '2405:201:e037:f0af:e9:9f48:2168:b60a%en0'
 Build info: version: '4.10.0', revision: 'c14d967899'
 System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '13.4', java.version: '17.0.7'
@@ -114,7 +114,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.<init>(RemoteWebDriver.java:154)
 at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:89)
 at io.appium.java_client.AppiumDriver.<init>(AppiumDriver.java:101)
 at io.appium.java_client.android.AndroidDriver.<init>(AndroidDriver.java:113)
-at com.brillio.test.LoginTest.setup(LoginTest.java:32)
+at com.brillio.base.AutomationWrapper.setup(AutomationWrapper.java:29)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -152,12 +152,12 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- org.openqa.selenium.SessionNotCreatedException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- invalidLoginTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.brillio.test.LoginTest@1725dc0f]" started-at="2023-06-15T12:41:07 IST" name="teardown" finished-at="2023-06-15T12:41:07 IST" duration-ms="0" status="SKIP">
+        </test-method> <!-- validRegisterTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.brillio.test.SignUpTest@4ac3c60d]" started-at="2023-06-15T12:58:24 IST" name="teardown" finished-at="2023-06-15T12:58:24 IST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- com.brillio.test.LoginTest -->
+      </class> <!-- com.brillio.test.SignUpTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
