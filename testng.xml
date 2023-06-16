@@ -3,7 +3,7 @@
 <suite name="Khan Academy Suite">
   <test thread-count="5" name="Android Pixel 4 Test">
     <classes>
-      <class name="com.brillio.test.ZDemo1Test"/>
+      <class name="com.brillio.test.SignUpTest"/>
       
     </classes>
   </test> <!-- Test -->
