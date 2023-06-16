@@ -1,5 +1,6 @@
 package com.brillio.test;
 
+import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -27,6 +28,12 @@ public class ZDemo1Test {
 	public void demoValidTest(String username,String password)
 	{
 		System.out.println("hello "+username+password);
+	}
+	
+	@Test()
+	public void demoValid2Test()
+	{
+		System.out.println("hello2");
 	}
 
 }
