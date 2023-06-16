@@ -1,79 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-16T11:07:06 IST" name="Default suite" finished-at="2023-06-16T11:08:11 IST" duration-ms="65058">
+  <suite started-at="2023-06-16T11:44:44 IST" name="Default suite" finished-at="2023-06-16T11:44:44 IST" duration-ms="81">
     <groups>
     </groups>
-    <test started-at="2023-06-16T11:07:06 IST" name="Default test" finished-at="2023-06-16T11:08:11 IST" duration-ms="65058">
-      <class name="com.brillio.test.LoginTest">
-        <test-method is-config="true" signature="startSession()[pri:0, instance:com.brillio.test.LoginTest@1ab3a8c8]" started-at="2023-06-16T11:07:03 IST" name="startSession" finished-at="2023-06-16T11:07:06 IST" duration-ms="2558" status="PASS">
+    <test started-at="2023-06-16T11:44:44 IST" name="Default test" finished-at="2023-06-16T11:44:44 IST" duration-ms="81">
+      <class name="com.brillio.test.ZDemo1Test">
+        <test-method signature="demo()[pri:0, instance:com.brillio.test.ZDemo1Test@3911c2a7]" started-at="2023-06-16T11:44:44 IST" name="demo" finished-at="2023-06-16T11:44:44 IST" duration-ms="19" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- startSession -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.brillio.test.LoginTest@1ab3a8c8]" started-at="2023-06-16T11:07:06 IST" name="setup" finished-at="2023-06-16T11:07:22 IST" duration-ms="16066" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="invalidLoginTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.brillio.test.LoginTest@1ab3a8c8]" started-at="2023-06-16T11:07:22 IST" name="invalidLoginTest" data-provider="invalidLoginData" finished-at="2023-06-16T11:07:33 IST" duration-ms="10659" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[saul]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[saul123]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[There was an issue signing in]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- invalidLoginTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.brillio.test.LoginTest@1ab3a8c8]" started-at="2023-06-16T11:07:33 IST" name="teardown" finished-at="2023-06-16T11:07:38 IST" duration-ms="5506" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.brillio.test.LoginTest@1ab3a8c8]" started-at="2023-06-16T11:07:38 IST" name="setup" finished-at="2023-06-16T11:07:53 IST" duration-ms="14657" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="invalidLoginTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.brillio.test.LoginTest@1ab3a8c8]" started-at="2023-06-16T11:07:53 IST" name="invalidLoginTest" data-provider="invalidLoginData" finished-at="2023-06-16T11:08:04 IST" duration-ms="11455" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[kim]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[kim123]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[There was an issue signing in]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- invalidLoginTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.brillio.test.LoginTest@1ab3a8c8]" started-at="2023-06-16T11:08:04 IST" name="teardown" finished-at="2023-06-16T11:08:11 IST" duration-ms="6656" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="endSession()[pri:0, instance:com.brillio.test.LoginTest@1ab3a8c8]" started-at="2023-06-16T11:08:11 IST" name="endSession" finished-at="2023-06-16T11:08:11 IST" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- endSession -->
-      </class> <!-- com.brillio.test.LoginTest -->
+        </test-method> <!-- demo -->
+      </class> <!-- com.brillio.test.ZDemo1Test -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

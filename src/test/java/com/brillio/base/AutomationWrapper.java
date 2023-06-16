@@ -1,9 +1,11 @@
 package com.brillio.base;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -11,6 +13,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+
+import com.brillio.utilities.PropUtils;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
@@ -21,6 +25,7 @@ public class AutomationWrapper {
 
 	protected AndroidDriver driver;
 	private AppiumDriverLocalService service;
+	Map<Object, Object> propEnvMap;
 
 	// server setup
 	// cloud device
@@ -28,23 +33,32 @@ public class AutomationWrapper {
 	// extent report
 	
 	@BeforeSuite
-	public void startSession()
+	public void startSession() throws IOException
 	{
-		AppiumServiceBuilder builder=new AppiumServiceBuilder();
-		builder.usingAnyFreePort();
-		builder.withLogFile(new File("logs/appiumlog.log"));
-		builder.withArgument(GeneralServerFlag.BASEPATH,"/wd/hub");
-		builder.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"));
-		service=AppiumDriverLocalService.buildService(builder);
+		propEnvMap=PropUtils.getPropertiesIntoMap("test-data/data.properties");
 		
-		service.start();
+		if(service == null && !service.isRunning())
+		{
+			AppiumServiceBuilder builder=new AppiumServiceBuilder();
+			builder.usingAnyFreePort();
+			builder.withLogFile(new File("logs/appiumlog.log"));
+			builder.withArgument(GeneralServerFlag.BASEPATH,"/wd/hub");
+			builder.withAppiumJS(new File("/usr/local/lib/node_modules/appium/build/lib/main.js"));
+			service=AppiumDriverLocalService.buildService(builder);
+			
+			service.start();
+		}
+		
 		//pass the service on the AndroidDriver object
 	}
 	
 	@AfterSuite
 	public void endSession()
 	{
-		service.stop();
+		if(service.isRunning())
+		{
+			service.stop();
+		}
 	}
 
 	@BeforeMethod
