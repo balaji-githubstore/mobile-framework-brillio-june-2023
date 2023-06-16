@@ -1,35 +1,18 @@
 package com.brillio.test;
 
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.brillio.base.AutomationWrapper;
+import com.brillio.utilities.DataUtils;
 
 import io.appium.java_client.AppiumBy;
 /**
  * This class contains test methods of login scenario
  */
 public class LoginTest extends AutomationWrapper{
-
-	@DataProvider
-	public Object[][] invalidLoginData()
-	{
-		Object[][] arr=new Object[2][3]; 
-		
-		arr[0][0]="saul";
-		arr[0][1]="saul123";
-		arr[0][2]="There was an issue signing in";
-		
-		arr[1][0]="kim";
-		arr[1][1]="kim123";
-		arr[1][2]="There was an issue signing in";
-		
-		return arr;
-		
-	}
 	
-	@Test(dataProvider = "invalidLoginData")
+	@Test(dataProviderClass = DataUtils.class, dataProvider = "invalidLoginData")
 	public void invalidLoginTest(String username,String password,String expectedError) 
 	{
 		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Dismiss']")).click();
