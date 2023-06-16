@@ -6,19 +6,19 @@ import org.testng.annotations.Test;
 public class ZDemo1Test {
 	
 	@DataProvider
-	public String[][] demoValidData()
+	public Object[][] demoValidData()
 	{
-		String[][] arr=new String[3][2];
+		Object[][] arr=new 	Object[3][2];
 		//i--> number of test sets/test case
 		//j-->number of parameters 
 		arr[0][0]="john";
 		arr[0][1]="john123";
 		
 		arr[1][0]="kim";
-		arr[1][1]="kim123";
+		arr[1][1]="787878";
 		
 		arr[2][0]="saul";
-		arr[2][1]="saul123";
+		arr[2][1]="78.8";
 		
 		return arr;
 	}
