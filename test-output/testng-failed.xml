@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.brillio.test.SignUpTest">
+      <class name="com.brillio.test.ZDemo1Test">
         <methods>
-          <include name="validRegisterTest"/>
-          <include name="setup"/>
-          <include name="teardown"/>
+          <include name="demoValidTest"/>
         </methods>
-      </class> <!-- com.brillio.test.SignUpTest -->
+      </class> <!-- com.brillio.test.ZDemo1Test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

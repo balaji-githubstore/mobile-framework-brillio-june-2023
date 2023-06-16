@@ -14,6 +14,12 @@ import io.appium.java_client.android.AndroidDriver;
 public class AutomationWrapper {
 	
 	protected AndroidDriver driver;
+	
+	
+	//server setup
+	//cloud device
+	//record the session as video (.mp4) 
+	//extent report
 
 	@BeforeMethod
 	public void setup() throws MalformedURLException {
