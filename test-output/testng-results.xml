@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-19T12:44:39 IST" name="Default suite" finished-at="2023-06-19T12:45:35 IST" duration-ms="55782">
+  <suite started-at="2023-06-19T13:01:58 IST" name="Default suite" finished-at="2023-06-19T13:02:57 IST" duration-ms="59081">
     <groups>
     </groups>
-    <test started-at="2023-06-19T12:44:39 IST" name="Default test" finished-at="2023-06-19T12:45:35 IST" duration-ms="55782">
+    <test started-at="2023-06-19T13:01:58 IST" name="Default test" finished-at="2023-06-19T13:02:57 IST" duration-ms="59081">
       <class name="com.brillio.test.SignUpTest">
-        <test-method is-config="true" signature="startSession()[pri:0, instance:com.brillio.test.SignUpTest@15ff3e9e]" started-at="2023-06-19T12:44:39 IST" name="startSession" finished-at="2023-06-19T12:44:39 IST" duration-ms="25" status="PASS">
+        <test-method is-config="true" signature="startSession()[pri:0, instance:com.brillio.test.SignUpTest@3ce1e309]" started-at="2023-06-19T13:01:54 IST" name="startSession" finished-at="2023-06-19T13:01:58 IST" duration-ms="3301" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startSession -->
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.brillio.test.SignUpTest@15ff3e9e]" started-at="2023-06-19T12:44:40 IST" name="setup" finished-at="2023-06-19T12:45:15 IST" duration-ms="35250" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String,java.lang.reflect.Method)[pri:0, instance:com.brillio.test.SignUpTest@3ce1e309]" started-at="2023-06-19T13:01:59 IST" name="setup" finished-at="2023-06-19T13:02:20 IST" duration-ms="20691" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,11 +23,16 @@
                 <![CDATA[None]]>
               </value>
             </param>
+            <param index="2">
+              <value>
+                <![CDATA[public void com.brillio.test.SignUpTest.validRegisterTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)]]>
+              </value>
+            </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="validRegisterTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.brillio.test.SignUpTest@15ff3e9e]" started-at="2023-06-19T12:45:15 IST" name="validRegisterTest" data-provider="commonDataProvider" finished-at="2023-06-19T12:45:33 IST" duration-ms="18317" status="PASS">
+        <test-method signature="validRegisterTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.brillio.test.SignUpTest@3ce1e309]" started-at="2023-06-19T13:02:20 IST" name="validRegisterTest" data-provider="commonDataProvider" finished-at="2023-06-19T13:02:51 IST" duration-ms="31492" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -63,11 +68,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validRegisterTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.brillio.test.SignUpTest@15ff3e9e]" started-at="2023-06-19T12:45:33 IST" name="teardown" finished-at="2023-06-19T12:45:35 IST" duration-ms="1213" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.brillio.test.SignUpTest@3ce1e309]" started-at="2023-06-19T13:02:51 IST" name="teardown" finished-at="2023-06-19T13:02:57 IST" duration-ms="5792" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="endSession()[pri:0, instance:com.brillio.test.SignUpTest@15ff3e9e]" started-at="2023-06-19T12:45:35 IST" name="endSession" finished-at="2023-06-19T12:45:35 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="endSession()[pri:0, instance:com.brillio.test.SignUpTest@3ce1e309]" started-at="2023-06-19T13:02:57 IST" name="endSession" finished-at="2023-06-19T13:02:58 IST" duration-ms="630" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endSession -->

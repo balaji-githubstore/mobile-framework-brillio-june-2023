@@ -2,6 +2,7 @@ package com.brillio.base;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -17,6 +18,10 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.brillio.utilities.PropUtils;
 
 import io.appium.java_client.android.AndroidDriver;
@@ -29,6 +34,8 @@ public class AutomationWrapper {
 	protected AndroidDriver driver;
 	private static AppiumDriverLocalService service;
 	private static Map<Object, Object> propEnvMap;
+	private static ExtentReports extent;
+	protected ExtentTest test;
 
 	// server setup
 	// cloud device
@@ -42,6 +49,16 @@ public class AutomationWrapper {
 	 */
 	@BeforeSuite
 	public void startSession() throws IOException {
+		
+		//initialize the report - where to save
+		if(extent ==null)
+		{
+			extent = new ExtentReports();
+			ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
+			extent.attachReporter(spark);
+		}
+		
+		
 		if (propEnvMap == null) {
 			propEnvMap = PropUtils.getPropertiesIntoMap("test-data/data.properties");
 		}
@@ -67,6 +84,8 @@ public class AutomationWrapper {
 		if (service != null && service.isRunning()) {
 			service.stop();
 		}
+		//publish the report
+		extent.flush();
 	}
 
 	/**
@@ -74,8 +93,11 @@ public class AutomationWrapper {
 	 */
 	@BeforeMethod
 	@Parameters({ "deviceName", "platformVersion" })
-	public void setup(@Optional("None") String deviceName, @Optional("None") String platformVersion)
+	public void setup(@Optional("None") String deviceName, @Optional("None") String platformVersion,Method mtd)
 			throws MalformedURLException {
+		
+		//create a test case in the extent report
+		test= extent.createTest(mtd.getName());
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("platformName", propEnvMap.get("platformName").toString());
@@ -131,6 +153,10 @@ public class AutomationWrapper {
 	 */
 	@AfterMethod
 	public void teardown() {
+		//write condition to check @Test method pass or fail or skip
+		//tomorrow
+		test.log(Status.PASS, "This is a logging event for MyFirstTest, and it passed!");
+		
 		driver.quit();
 	}
 }
