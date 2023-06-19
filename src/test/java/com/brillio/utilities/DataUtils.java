@@ -1,6 +1,7 @@
 package com.brillio.utilities;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 
 import org.testng.annotations.DataProvider;
 
@@ -22,10 +23,14 @@ public class DataUtils {
 	}
 
 	@DataProvider
-	public Object[][] commonDataProvider() throws IOException {
+	public Object[][] commonDataProvider(Method mtd) throws IOException {
+		
+		//currentTestMethodName is the sheetname
+		String currentTestMethodName=mtd.getName();
+		
 		
 		Object[][] arr=ExcelUtils.getSheetIntoTwoDimensionalArray("test-data/khan_academy_data.xlsx",
-				"validRegisterTest");
+				currentTestMethodName);
 
 		return arr;
 	}

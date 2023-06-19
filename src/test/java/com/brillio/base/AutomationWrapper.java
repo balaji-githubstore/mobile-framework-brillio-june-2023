@@ -64,7 +64,7 @@ public class AutomationWrapper {
 	 */
 	@AfterSuite
 	public void endSession() {
-		if (service.isRunning()) {
+		if (service != null && service.isRunning()) {
 			service.stop();
 		}
 	}
