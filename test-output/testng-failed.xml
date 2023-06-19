@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite parallel="tests" name="Failed suite [Khan Academy Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" parallel="tests" name="Android Pixel 4 Test2(failed)">
-    <parameter name="platformVersion" value="11.0"/>
-    <parameter name="deviceName" value="OnePlus 9"/>
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
       <class name="com.brillio.test.SignUpTest">
         <methods>
@@ -15,5 +13,5 @@
         </methods>
       </class> <!-- com.brillio.test.SignUpTest -->
     </classes>
-  </test> <!-- Android Pixel 4 Test2(failed) -->
-</suite> <!-- Failed suite [Khan Academy Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

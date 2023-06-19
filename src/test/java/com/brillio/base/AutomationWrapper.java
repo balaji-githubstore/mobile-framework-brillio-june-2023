@@ -35,13 +35,16 @@ public class AutomationWrapper {
 	// record the session as video (.mp4)
 	// extent report
 
+	/**
+	 * Appium server automation - start the server for only local device
+	 * 
+	 * @throws IOException
+	 */
 	@BeforeSuite
 	public void startSession() throws IOException {
-		if(propEnvMap==null)
-		{
+		if (propEnvMap == null) {
 			propEnvMap = PropUtils.getPropertiesIntoMap("test-data/data.properties");
 		}
-		
 
 		if (propEnvMap.get("runenv").toString().equalsIgnoreCase("local") && service == null) {
 			AppiumServiceBuilder builder = new AppiumServiceBuilder();
@@ -56,32 +59,37 @@ public class AutomationWrapper {
 		// pass the service on the AndroidDriver object
 	}
 
+	/**
+	 * Appium server automation - stop the server if running
+	 */
 	@AfterSuite
 	public void endSession() {
-		if (service != null && service.isRunning()) {
+		if (service.isRunning()) {
 			service.stop();
 		}
 	}
 
+	/**
+	 * App launch activity - either local or cloud
+	 */
 	@BeforeMethod
-	@Parameters({"deviceName","platformVersion"})
-	public void setup(@Optional("None") String deviceName,@Optional("None") String platformVersion) throws MalformedURLException {
+	@Parameters({ "deviceName", "platformVersion" })
+	public void setup(@Optional("None") String deviceName, @Optional("None") String platformVersion)
+			throws MalformedURLException {
 
 		DesiredCapabilities caps = new DesiredCapabilities();
 		caps.setCapability("platformName", propEnvMap.get("platformName").toString());
-		
-		if(deviceName.equalsIgnoreCase("none"))
-		{
+
+		if (deviceName.equalsIgnoreCase("none")) {
 			caps.setCapability("deviceName", propEnvMap.get("deviceName").toString());
-			caps.setCapability("platformVersion", propEnvMap.get("platformVersion").toString());
-		}
-		else
-		{
-			caps.setCapability("deviceName",deviceName);
+			if(propEnvMap.get("runenv").toString().equalsIgnoreCase("cloud"))
+			{
+				caps.setCapability("platformVersion", propEnvMap.get("platformVersion").toString());
+			}
+		} else {
+			caps.setCapability("deviceName", deviceName);
 			caps.setCapability("platformVersion", platformVersion);
 		}
-		
-		
 
 		if (propEnvMap.get("runenv").toString().equalsIgnoreCase("local")) {
 			String appPath = new File(propEnvMap.get("app").toString()).getAbsolutePath();
@@ -98,7 +106,7 @@ public class AutomationWrapper {
 				driver.findElement(By.xpath("//*[@text='Allow']")).click();
 			}
 		} else {
-			
+
 			caps.setCapability("app", propEnvMap.get("appCloud").toString());
 
 			Map<String, String> bstackDetails = new HashMap<String, String>();
@@ -118,6 +126,9 @@ public class AutomationWrapper {
 
 	}
 
+	/**
+	 * App or browser close activity 
+	 */
 	@AfterMethod
 	public void teardown() {
 		driver.quit();

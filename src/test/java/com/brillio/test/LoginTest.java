@@ -12,7 +12,7 @@ import io.appium.java_client.AppiumBy;
  */
 public class LoginTest extends AutomationWrapper{
 	
-	@Test(dataProviderClass = DataUtils.class, dataProvider = "invalidLoginData")
+	@Test(dataProviderClass = DataUtils.class, dataProvider = "commonDataProvider")
 	public void invalidLoginTest(String username,String password,String expectedError) 
 	{
 		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Dismiss']")).click();

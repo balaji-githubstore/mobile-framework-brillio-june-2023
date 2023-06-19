@@ -1,5 +1,7 @@
 package com.brillio.utilities;
 
+import java.io.IOException;
+
 import org.testng.annotations.DataProvider;
 
 public class DataUtils {
@@ -19,5 +21,12 @@ public class DataUtils {
 		return arr;
 	}
 
-	
+	@DataProvider
+	public Object[][] commonDataProvider() throws IOException {
+		
+		Object[][] arr=ExcelUtils.getSheetIntoTwoDimensionalArray("test-data/khan_academy_data.xlsx",
+				"validRegisterTest");
+
+		return arr;
+	}
 }
