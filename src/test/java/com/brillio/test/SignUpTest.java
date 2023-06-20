@@ -4,6 +4,10 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 import com.brillio.base.AutomationWrapper;
+import com.brillio.pages.DismissPage;
+import com.brillio.pages.HomePage;
+import com.brillio.pages.SettingsPage;
+import com.brillio.pages.WelcomePage;
 import com.brillio.utilities.DataUtils;
 
 import io.appium.java_client.AppiumBy;
@@ -17,20 +21,21 @@ public class SignUpTest extends AutomationWrapper {
 	public void validRegisterTest(String firstname, String lastname, String dob, String email, String password,
 			String expectedValue) {
 		
-		if(driver.findElements(AppiumBy.xpath("//android.widget.TextView[@text='Dismiss']")).size()>0)
-		{
-			driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Dismiss']")).click();
-			test.log(Status.INFO, "Clicked On Dismiss");
-		}
-		
+		DismissPage dismissPage=new DismissPage(driver);
+		dismissPage.clickOnDismiss();
+		test.log(Status.INFO, "Clicked On Dismiss");
 
-		driver.findElement(AppiumBy.xpath("//android.widget.ImageView[@content-desc='Settings']")).click();
+		HomePage homePage=new HomePage(driver);
+		homePage.clickOnSettings();
+		
 		test.log(Status.INFO, "Clicked On Settings Icon");
 		
-		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Sign in']")).click();
+		SettingsPage settingsPage=new SettingsPage(driver);
+		settingsPage.clickOnSignIn();
 		test.log(Status.INFO, "Clicked On Sign in");
 
-		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Sign up with email']")).click();
+		WelcomePage welcomePage=new WelcomePage(driver);
+		welcomePage.clickOnSignupWithEmail();
 		test.log(Status.INFO, "Clicked On Sign up with email");
 
 		driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text='First name']")).sendKeys(firstname);

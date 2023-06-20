@@ -46,5 +46,10 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>com.brillio</groupId>
+			<artifactId>MobileAutomation</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 </project>
