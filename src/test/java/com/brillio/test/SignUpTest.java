@@ -2,6 +2,7 @@ package com.brillio.test;
 
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
 import com.brillio.base.AutomationWrapper;
 import com.brillio.utilities.DataUtils;
 
@@ -15,19 +16,31 @@ public class SignUpTest extends AutomationWrapper {
 	@Test(dataProviderClass = DataUtils.class, dataProvider = "commonDataProvider")
 	public void validRegisterTest(String firstname, String lastname, String dob, String email, String password,
 			String expectedValue) {
-		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Dismiss']")).click();
+		
+		if(driver.findElements(AppiumBy.xpath("//android.widget.TextView[@text='Dismiss']")).size()>0)
+		{
+			driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Dismiss']")).click();
+			test.log(Status.INFO, "Clicked On Dismiss");
+		}
+		
 
 		driver.findElement(AppiumBy.xpath("//android.widget.ImageView[@content-desc='Settings']")).click();
-
+		test.log(Status.INFO, "Clicked On Settings Icon");
+		
 		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Sign in']")).click();
+		test.log(Status.INFO, "Clicked On Sign in");
 
 		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Sign up with email']")).click();
+		test.log(Status.INFO, "Clicked On Sign up with email");
 
 		driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text='First name']")).sendKeys(firstname);
+		test.log(Status.INFO, "Entered First Name as "+firstname);
 
 		driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text='Last name']")).sendKeys(lastname);
+		test.log(Status.INFO, "Entered Last Name as "+lastname);
 
 		driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text='Birthday']")).click();
+		
 		
 		String[] dobSplit=dob.split("-");
 
@@ -44,12 +57,15 @@ public class SignUpTest extends AutomationWrapper {
 		driver.findElement(AppiumBy.xpath("(//*[@resource-id='android:id/numberpicker_input'])[3]")).sendKeys(dobSplit[2]);
 
 		driver.findElement(AppiumBy.xpath("//*[@text='OK']")).click();
+		
+		test.log(Status.INFO, "Entered date as "+dobSplit);
 
 		driver.findElement(AppiumBy.xpath("//android.widget.EditText[contains(@text,'Email')]"))
 				.sendKeys(email);
+		test.log(Status.INFO, "Entered Email as "+email);
 
 		driver.findElement(AppiumBy.xpath("//android.widget.EditText[@content-desc='Password']")).sendKeys(password);
-
+		test.log(Status.INFO, "Entered Password as "+password);
 		//click on create
 		//Assert the successful registration or profile page with your name
 		System.out.println("valid registration");

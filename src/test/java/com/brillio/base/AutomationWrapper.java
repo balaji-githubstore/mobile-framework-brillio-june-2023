@@ -1,16 +1,20 @@
 package com.brillio.base;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -21,6 +25,8 @@ import org.testng.annotations.Parameters;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.brillio.utilities.PropUtils;
 
@@ -121,7 +127,7 @@ public class AutomationWrapper {
 
 			driver = new AndroidDriver(service, caps);
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-
+			driver.startRecordingScreen();
 			driver.activateApp("org.khanacademy.android");
 
 			if (driver.findElements(By.xpath("//*[@text='Allow']")).size() > 0) {
@@ -146,16 +152,39 @@ public class AutomationWrapper {
 			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		}
 
+		
 	}
 
 	/**
 	 * App or browser close activity 
+	 * @throws IOException 
 	 */
 	@AfterMethod
-	public void teardown() {
-		//write condition to check @Test method pass or fail or skip
-		//tomorrow
-		test.log(Status.PASS, "This is a logging event for MyFirstTest, and it passed!");
+	public void teardown(ITestResult result) throws IOException {
+		
+		if (result.getStatus() == ITestResult.FAILURE) {
+            test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " FAILED ", ExtentColor.RED));
+            test.fail(result.getThrowable());
+        } else if (result.getStatus() == ITestResult.SUCCESS) {
+            test.log(Status.PASS, MarkupHelper.createLabel(result.getName() + " PASSED ", ExtentColor.GREEN));
+        } else {
+            test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + " SKIPPED ", ExtentColor.ORANGE));
+            test.skip(result.getThrowable());
+        }
+
+		//embed screenshot always
+		test.addScreenCaptureFromBase64String(driver.getScreenshotAs(OutputType.BASE64));
+		
+		if (propEnvMap.get("runenv").toString().equalsIgnoreCase("local")) {
+			//base64
+			String encoded= driver.stopRecordingScreen();
+			byte[] bytes= Base64.getDecoder().decode(encoded);
+			
+			FileOutputStream file=new FileOutputStream("target/recording.mp4");
+			file.write(bytes);
+			file.flush();
+		}
+		
 		
 		driver.quit();
 	}
