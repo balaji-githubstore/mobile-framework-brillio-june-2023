@@ -9,6 +9,7 @@ import com.brillio.utilities.DataUtils;
 import io.appium.java_client.AppiumBy;
 /**
  * This class contains test methods of login scenario
+ * No page objects added
  */
 public class LoginTest extends AutomationWrapper{
 	
